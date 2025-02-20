@@ -12,3 +12,19 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  user_id  Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}
+
+model Meal {
+  id           Int      @id @default(autoincrement())
+  name         String
+  area         String
+  instructions String
+  image        String
+  source       String
+  createdAt    DateTime @default(now())
+}
