@@ -23,3 +23,10 @@ export async function addMeal(meal:Meal) {
         console.log("Error adding meal ", e);
     }
 }
+export async function getAllMeals(){
+    try{
+        return await prisma.meal.findMany();
+    }catch (e) {
+        console.log("Error getting all meals ", e);
+    }
+}
