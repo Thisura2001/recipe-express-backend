@@ -30,3 +30,16 @@ export async function getAllMeals(){
         console.log("Error getting all meals ", e);
     }
 }
+export async function DeleteMeal(name:string){
+    try{
+        const deleteMeal = await prisma.meal.delete({
+            where:{
+                name:name
+            }
+        });
+        console.log("Meal.ts deleted ", deleteMeal);
+        return deleteMeal;
+    }catch (e) {
+        console.log("Error deleting meal ", e);
+    }
+}
